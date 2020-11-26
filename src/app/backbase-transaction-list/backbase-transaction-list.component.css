@@ -48,7 +48,7 @@
 .transfer-list .transfer {
     border: 3px solid var(--backbase-grey);
     margin-top: -3px;
-    height: 64px; 
+    height: 64px;
     position: relative;
 }
 
@@ -81,18 +81,18 @@
     margin-top: 13px;
 }
 
-.transfer-list .transfer .content p{
+.transfer-list .transfer .content p {
     color: var(--backbase-grey-darker);
 }
 
-.transfer-list .transfer .content .name{
+.transfer-list .transfer .content .name {
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     margin: 0;
 }
 
-.transfer-list .transfer .content .type{
+.transfer-list .transfer .content .type {
     font-size: 14px;
     line-height: 18px;
     margin: 0;
@@ -104,5 +104,61 @@
     margin-right: 24px;
     font-weight: 500;
     font-size: 18px;
-    color: var(--backbase-grey-darker)
+    color: var(--backbase-grey-darker);
+}
+
+.transfer-list .options-container {
+    width: 100%;
+    height: 64px;
+}
+
+.transfer-list .options-container .search-container {
+    float: left;
+    width: calc(100% - 482px);
+}
+
+.transfer-list .options-container .search-container .search {
+    width: calc(100% - 12px);
+    max-width: 360px;
+}
+
+.transfer-list .options-container .sort-container {
+    float: right;
+    width: 482px;
+    text-align: right;
+    margin-top: 1px;
+}
+
+.transfer-list .options-container .sort-container .sort-by {
+    margin-right: 24px;
+    font-weight: 500;
+}
+
+.transfer-list .options-container .sort-container .mat-button {
+    border: 1px solid var(--backbase-grey);
+    text-transform: uppercase;
+    min-width: 100;
+    padding: 0 36px;
+    height: 38px;
+    margin-left: -1px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: normal;
+    position: relative;
+}
+
+.transfer-list .options-container .sort-container .mat-button .mat-icon {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+}
+
+@media (max-width: 1280px) {
+    .transfer-list {
+        width: calc(100% - 48px);
+        margin: 24px;
+    }
+    .transfer-list mat-card-content {
+        max-height: calc(100vh - 578px);
+    }
 }

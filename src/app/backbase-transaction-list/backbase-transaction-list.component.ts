@@ -1,29 +1,48 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { mockData, COMPANYNAME } from '../app.component.utils';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Component } from '@angular/core';
+import { mockData, COMPANYNAME, dataFormat } from '../app.component.utils';
+import { TranslateService } from '@ngx-translate/core';
+import { FormControl } from '@angular/forms';
+import { BackbaseService } from '../app.service';
 
 @Component({
   selector: 'backbase-transaction-list',
   templateUrl: './backbase-transaction-list.component.html',
   styleUrls: ['./backbase-transaction-list.component.css']
 })
-export class BackbaseTransactionListComponent implements OnInit {
-  public data: any;
+export class BackbaseTransactionListComponent {
+  public data: dataFormat[];
   public sortType: string;
   public sortDirection: string;
+  public search: FormControl
 
-  constructor() {
+  constructor(
+    private translate: TranslateService,
+    private backbase: BackbaseService
+  ) {
     this.data = mockData.data;
     this.sortDirection = 'ASC';
+    this.search = new FormControl(null);
+    this.search.valueChanges.subscribe(response => {
+      this.data = mockData.data.filter(element =>
+        (element.merchant.name.toLowerCase().includes(response.toLowerCase())
+          || element.transaction.type.toLowerCase().includes(response.toLowerCase())
+          || element.transaction.amountCurrency.amount.toString().toLowerCase().includes(response.toLowerCase())));
+      (!!this.sortType) ? this.sortBy(this.sortType, true) : null;
+    });
+    this.backbase.transferMoney$.subscribe(response => {
+      this.data.unshift(response);
+      (!!this.sortType) ? this.sortBy(this.sortType, true) : null;
+    })
   }
 
-  ngOnInit(): void {
+  public getTranslatedString(key: string): string {
+    return this.translate.instant(key);
   }
 
-
-  public getImage(name): string {
+  public getImage(name: string): string {
     switch (name) {
       case COMPANYNAME.BACKBASE:
+      case COMPANYNAME.FC:
         return '../../assets/icons/backbase.png';
       case COMPANYNAME.THETEALOUNGE:
         return '../../assets/icons/the-tea-lounge.png';
@@ -46,19 +65,18 @@ export class BackbaseTransactionListComponent implements OnInit {
     }
   }
 
-  public getCreditDebitIndicator(indicator): string {
+  public getCreditDebitIndicator(indicator: string): string {
     return (indicator === 'CRDT') ? '+' : '-';
   }
 
-  public getCreditDebitValue(trasanction): any {
+  public getCreditDebitValue(trasanction): number {
     return (trasanction.creditDebitIndicator === 'CRDT') ? Math.abs(trasanction.amountCurrency.amount) : -Math.abs(trasanction.amountCurrency.amount);
   }
 
-  public sortBy(type): void {
-    (this.sortType === type)
+  public sortBy(type: string, changeSearch?: boolean): void {
+    (this.sortType === type && !changeSearch)
       ? (this.sortDirection === 'ASC') ? this.sortDirection = 'DSC' : this.sortDirection = 'ASC'
       : this.sortType = type;
-
     (type === 'date')
       ? (this.sortDirection === 'ASC')
         ? this.data = this.data.sort((a, b) => a.dates.valueDate - b.dates.valueDate)

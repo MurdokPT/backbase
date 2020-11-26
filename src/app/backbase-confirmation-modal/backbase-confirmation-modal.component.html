@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{'generic_confimation_title' | translate }}</h2>
+<mat-dialog-content class="mat-typography">
+    <h3>{{'generic_confimation_description' | translate }}</h3>
+    <div class="transfer-info">
+        <p>{{'from_account_title' | translate}}: <span>{{data.fromAccount}}</span></p>
+        <p>{{'to_account_title' | translate}}: <span>{{data.info.toAccount}}</span></p>
+        <p>{{'amount_title' | translate}}: <span>€{{data.info.amount}}</span></p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>{{'generic_cancel_button' | translate}}</button>
+    <button mat-button class="btn-primary" [mat-dialog-close]="true" (click)="sendTransfer()">{{'generic_transfer_button' | translate}}</button>
+</mat-dialog-actions>

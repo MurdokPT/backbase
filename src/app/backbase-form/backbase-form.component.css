@@ -53,4 +53,27 @@
     color: var(--backbase-white);
     text-transform: uppercase;
     margin-bottom: 24px;
+    position: relative;
+}
+
+.transfer-form form button.mat-button-disabled:hover {
+    cursor: not-allowed;
+}
+
+.transfer-form form button.mat-button-disabled:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1280px) {
+    .transfer-form {
+        height: 296px;
+        width: calc(100% - 48px);
+        margin: 24px;
+    }
 }
