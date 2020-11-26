@@ -6,6 +6,16 @@
   "to_account_title": "To account",
   "to_account_placeholder": "Ex.Georgia Power Electric Company",
   "amount_title": "Amount",
-  "amount_placeholder": "Free Checking(4692) - $5824.76",
-  "generic_submit_button": "Submit"
+  "amount_placeholder": "0.00",
+  "generic_submit_button": "Submit",
+  "search_title": "Search",
+  "search_placeholder": "Ex.Backbase",
+  "sort_by": "Sort by",
+  "date_label": "date",
+  "beneficiary_label": "beneficiary",
+  "amount_label": "amount",
+  "generic_confimation_title": "Confirm Transaction",
+  "generic_confimation_description": "Please confirm the transaction",
+  "generic_cancel_button": "Cancel",
+  "generic_transfer_button": "Transfer"
 }

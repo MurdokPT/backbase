@@ -7,19 +7,36 @@
     </mat-card-header>
     <mat-card-content>
         <div class="options-container">
-            <div class="search-container"></div>
+            <div class="search-container">
+                <mat-form-field class="search">
+                    <mat-label>{{'search_title' | translate}}</mat-label>
+                    <input matInput placeholder="{{getTranslatedString('search_placeholder')}}" [formControl]="search">
+                </mat-form-field>
+            </div>
             <div class="sort-container">
-                {{sortType}}
-                {{sortDirection}}
-                <span>sortBy</span>
-                <button mat-button type="submit" (click)="sortBy('date')">date <span *ngIf="sortType === 'date'">aaa</span></button>
-                <button mat-button type="submit" (click)="sortBy('beneficiary')">beneficiary <span *ngIf="sortType === 'beneficiary'">aaa</span></button>
-                <button mat-button type="submit" (click)="sortBy('amount')">amount <span *ngIf="sortType === 'amount'">aaa</span></button>
+                <span class="sort-by">{{'sort_by' | translate}}</span>
+                <button mat-button type="submit" (click)="sortBy('date')">
+                    {{'date_label' | translate}}
+                    <mat-icon *ngIf="sortType === 'date'">
+                        {{(sortDirection === "ASC") ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+                    </mat-icon>
+                </button>
+                <button mat-button type="submit" (click)="sortBy('beneficiary')">
+                    {{'beneficiary_label' | translate}}
+                    <mat-icon *ngIf="sortType === 'beneficiary'">
+                        {{(sortDirection === "ASC") ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+                    </mat-icon>
+                </button>
+                <button mat-button type="submit" (click)="sortBy('amount')">
+                    {{'amount_label' | translate}}
+                    <mat-icon *ngIf="sortType === 'amount'">
+                        {{(sortDirection === "ASC") ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+                    </mat-icon>
+                </button>
             </div>
         </div>
         <div class="transfer-list-container">
             <div class="transfer" *ngFor="let item of data">
-                <!-- {{item | json}} -->
                 <span class="border-left" [ngStyle]="{'background-color': item.categoryCode}"></span>
                 <p class="date">{{item.dates.valueDate | date:'MMM d'}}</p>
                 <img src="{{getImage(item.merchant.name)}}" alt="Bank account image">

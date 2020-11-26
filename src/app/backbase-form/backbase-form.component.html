@@ -21,10 +21,13 @@
 
             <mat-form-field class="amount">
                 <mat-label>{{'amount_title' | translate}}</mat-label>
-                <input matInput placeholder="{{getTranslatedString('amount_placeholder')}}" formControlName="amount">
+                <span matPrefix>€ &nbsp;</span>
+                <input matInput type="number" min="1" step="any"
+                    placeholder="{{getTranslatedString('amount_placeholder')}}" formControlName="amount">
             </mat-form-field>
-            <button mat-button type="submit">{{'generic_submit_button' | translate}}</button>
-            <!-- [disabled]="!profileForm.valid" -->
+            <button mat-button type="submit" [disabled]="checkIfValid()">
+                {{'generic_submit_button' | translate}}
+            </button>
         </form>
     </mat-card-content>
 </mat-card>

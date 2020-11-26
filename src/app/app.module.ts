@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { BackbaseService } from './app.service';
 import { BackbaseFormComponent } from './backbase-form/backbase-form.component';
 import { BackbaseTransactionListComponent } from './backbase-transaction-list/backbase-transaction-list.component';
 import { BackbaseHeaderComponent } from './backbase-header/backbase-header.component';
@@ -10,9 +11,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BackbaseConfirmationModalComponent } from './backbase-confirmation-modal/backbase-confirmation-modal.component';
 
 
 @NgModule({
@@ -20,7 +24,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppComponent,
     BackbaseFormComponent,
     BackbaseTransactionListComponent,
-    BackbaseHeaderComponent
+    BackbaseHeaderComponent,
+    BackbaseConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -38,7 +45,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       }
     })
   ],
-  providers: [],
+  providers: [
+    BackbaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
