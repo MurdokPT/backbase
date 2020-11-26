@@ -1,0 +1,56 @@
+.transfer-form {
+    width: calc(30% - 16px);
+    float: left;
+    background-color: var(--backbase-white);
+    margin-top: 32px;
+    padding: 0;
+    margin-right: 16px;
+    overflow: hidden;
+}
+
+.transfer-form .mat-card-header {
+    height: 42px;
+    background-color: var(--backbase-green);
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.transfer-form .mat-card-header ::ng-deep .mat-card-header-text {
+    width: 100%;
+}
+
+.transfer-form .mat-card-header span.icon {
+    position: absolute;
+    background-image: url("../../assets/icons/arrows.png");
+    background-color: var(--backbase-green);
+    background-blend-mode: multiply;
+    display: block;
+    width: 28px;
+    height: 24px;
+    top: calc(50% - 12px);
+    left: 24px;
+}
+
+.transfer-form .mat-card-header h4 {
+    color: var(--backbase-white);
+    line-height: 42px;
+    font-size: 18px;
+}
+
+.transfer-form mat-card-content {
+    padding: 24px;
+}
+
+.transfer-form form mat-form-field {
+    width: 100%;
+}
+
+.transfer-form form button {
+    min-width: 160px;
+    float: right;
+    background-color: var(--backbase-orange);
+    color: var(--backbase-white);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}

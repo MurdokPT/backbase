@@ -1,0 +1,108 @@
+.transfer-list {
+    width: calc(70% - 16px);
+    float: right;
+    background-color: var(--backbase-white);
+    margin-top: 32px;
+    padding: 0;
+    margin-left: 16px;
+    overflow: hidden;
+}
+
+.transfer-list .mat-card-header {
+    height: 64px;
+    background-color: var(--backbase-green);
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.transfer-list .mat-card-header ::ng-deep .mat-card-header-text {
+    width: 100%;
+}
+
+.transfer-list .mat-card-header span.icon {
+    position: absolute;
+    background-image: url("../../assets/icons/briefcase.png");
+    background-color: var(--backbase-green);
+    background-blend-mode: multiply;
+    display: block;
+    width: 28px;
+    height: 24px;
+    top: calc(50% - 12px);
+    left: 24px;
+}
+
+.transfer-list .mat-card-header h4 {
+    color: var(--backbase-white);
+    line-height: 64px;
+    font-size: 18px;
+}
+
+.transfer-list mat-card-content {
+    padding: 24px;
+    padding-top: 27px;
+    max-height: calc(100vh - 240px);
+    overflow-y: auto;
+}
+
+.transfer-list .transfer {
+    border: 3px solid var(--backbase-grey);
+    margin-top: -3px;
+    height: 64px; 
+    position: relative;
+}
+
+.transfer-list .transfer .border-left {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 5px;
+    height: calc(100% + 6px);
+}
+
+.transfer-list .transfer .date {
+    float: left;
+    line-height: 64px;
+    margin: 0 48px 0 24px;
+    color: var(--backbase-grey-dark);
+}
+
+.transfer-list .transfer img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    filter: grayscale(100%);
+    margin-top: 12px;
+    margin-right: 48px;
+}
+
+.transfer-list .transfer .content {
+    float: left;
+    margin-top: 13px;
+}
+
+.transfer-list .transfer .content p{
+    color: var(--backbase-grey-darker);
+}
+
+.transfer-list .transfer .content .name{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.transfer-list .transfer .content .type{
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.transfer-list .transfer .amount {
+    float: right;
+    line-height: 64px;
+    margin-right: 24px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--backbase-grey-darker)
+}

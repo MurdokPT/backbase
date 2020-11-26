@@ -1,0 +1,18 @@
+header{
+    height: 64px;
+    width: 100vw;
+    background-color: var(--backbase-white);
+    border-bottom: 4px solid var(--backbase-orange);
+}
+
+header .wrapper{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+header img{
+    width: auto;
+    height: 40px;
+    margin-top: 10px;
+}

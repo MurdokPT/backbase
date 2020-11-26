@@ -1,0 +1,37 @@
+<mat-card class="transfer-list">
+    <mat-card-header>
+        <span class="icon"></span>
+        <mat-card-title>
+            <h4>{{'transfer_list_title' | translate}}</h4>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="options-container">
+            <div class="search-container"></div>
+            <div class="sort-container">
+                {{sortType}}
+                {{sortDirection}}
+                <span>sortBy</span>
+                <button mat-button type="submit" (click)="sortBy('date')">date <span *ngIf="sortType === 'date'">aaa</span></button>
+                <button mat-button type="submit" (click)="sortBy('beneficiary')">beneficiary <span *ngIf="sortType === 'beneficiary'">aaa</span></button>
+                <button mat-button type="submit" (click)="sortBy('amount')">amount <span *ngIf="sortType === 'amount'">aaa</span></button>
+            </div>
+        </div>
+        <div class="transfer-list-container">
+            <div class="transfer" *ngFor="let item of data">
+                <!-- {{item | json}} -->
+                <span class="border-left" [ngStyle]="{'background-color': item.categoryCode}"></span>
+                <p class="date">{{item.dates.valueDate | date:'MMM d'}}</p>
+                <img src="{{getImage(item.merchant.name)}}" alt="Bank account image">
+                <div class="content">
+                    <p class="name">{{item.merchant.name}}</p>
+                    <p class="type">{{item.transaction.type}}</p>
+                </div>
+                <div class="amount">
+                    {{getCreditDebitIndicator(item.transaction.creditDebitIndicator)}}
+                    {{item.transaction.amountCurrency.amount | currency: item.transaction.amountCurrency.currencyCode}}
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

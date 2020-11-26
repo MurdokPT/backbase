@@ -1,0 +1,30 @@
+<mat-card class="transfer-form">
+    <mat-card-header>
+        <span class="icon"></span>
+        <mat-card-title>
+            <h4>{{'form_title' | translate}}</h4>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="from-account">
+                <mat-label>{{'from_account_title' | translate}}</mat-label>
+                <input matInput placeholder="{{getTranslatedString('from_account_placeholder')}}"
+                    formControlName="fromAccount">
+            </mat-form-field>
+
+            <mat-form-field class="to-account">
+                <mat-label>{{'to_account_title' | translate}}</mat-label>
+                <input matInput placeholder="{{getTranslatedString('to_account_placeholder')}}"
+                    formControlName="toAccount">
+            </mat-form-field>
+
+            <mat-form-field class="amount">
+                <mat-label>{{'amount_title' | translate}}</mat-label>
+                <input matInput placeholder="{{getTranslatedString('amount_placeholder')}}" formControlName="amount">
+            </mat-form-field>
+            <button mat-button type="submit">{{'generic_submit_button' | translate}}</button>
+            <!-- [disabled]="!profileForm.valid" -->
+        </form>
+    </mat-card-content>
+</mat-card>
