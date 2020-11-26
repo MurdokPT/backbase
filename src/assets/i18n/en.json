@@ -1,0 +1,11 @@
+{
+  "form_title": "Make a Transfer",
+  "transfer_list_title": "Recent Transactions",
+  "from_account_title": "From account",
+  "from_account_placeholder": "Ex.Free Checking(4692) - $5824.76",
+  "to_account_title": "To account",
+  "to_account_placeholder": "Ex.Georgia Power Electric Company",
+  "amount_title": "Amount",
+  "amount_placeholder": "Free Checking(4692) - $5824.76",
+  "generic_submit_button": "Submit"
+}
